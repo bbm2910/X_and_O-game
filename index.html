@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,700;1,100;1,200;1,400;1,700&family=Roboto+Mono:wght@100;200;300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <section class="main">
+    <div class="game">
+         <button class="restart-btn">Restart</button>
+        <div class="game-board">
+            <div class="cell cell1" type="button"><img src="images/o.png" alt=""></div>
+            <div class="cell cell2" type="button"></div>
+            <div class="cell cell3" type="button"></div>
+            <div class="cell cell4" type="button"></div>
+            <div class="cell cell5" type="button"></div>
+            <div class="cell cell6" type="button"></div>
+            <div class="cell cell7" type="button"></div>
+            <div class="cell cell8" type="button"></div>
+            <div class="cell cell9" type="button"><img src="images/x.png" alt=""></div>
+        </div>
+    </div>
+    <div class="display-result">
+        <div class="player-x">
+            <h3>Player X</h3>
+            <p>0</p>
+        </div>
+       <div class="ties">
+        <h3>Ties</h3>
+        <p>0</p>
+       </div>
+        <div class="player-o">
+            <h3>Player</h3>
+            <p>0</p>
+        </div>
+    </div>
+   </section>
+   <section class="game-intro">
+    <img src="images/logo.svg" alt="tic tac toe image" class="logo">
+    <h1>Unleash your tactical prowess as you vie for victory in this classic game of wit and skill. <br>
+        Get ready to make your mark, claim your territory, and outsmart your opponent. <br> Let the battle for tic-tac-toe supremacy begin!</h1>
+    <div class="choice">
+        <input type="radio" id="vsPlayer" class="ui-checkbox" name="choice" checked/>
+        <label for="vsPlayer" class="s-input">Player VS Computer</label>
+        <input type="radio" id="vsCompute" class="ui-checkbox" name="choice"/>
+        <label for="vsCompute" class="s-input">Player VS Player</label>
+    </div>
+    <button class="start-btn">Start game</button>
+   </section>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
