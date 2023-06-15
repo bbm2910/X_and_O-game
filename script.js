@@ -18,8 +18,8 @@ startBtn.addEventListener("click", () => {
             intro.style.display = "none";
             main.style.display = "block";
         }, 3000);
+        gameStartAudio.play();
     }
-    gameStartAudio.play();
 });
 
 vsPlayerRadio.addEventListener("click", () => {
