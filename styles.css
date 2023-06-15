@@ -70,16 +70,14 @@ body {
 	font-family: 'Roboto Mono', monospace;
 	background: #f1f1f1;
 	color: #100f0f;
+	position: relative;
+	min-height: 100vh;
 }
 .main {
 	display: none;
 }
 img {
 	width: 40%;
-}
-.game {
-	display: grid;
-	grid-template-columns: repeat(9 1fr);
 }
 .game-board {
 	margin: 3% auto 0;
@@ -89,36 +87,58 @@ img {
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 	overflow: hidden;
+	border-radius: 2rem;
 }
 
 .game-board .cell {
 	font-weight: 700;
 	display: grid;
 	place-items: center;
-	font-size: 5rem;
+	font-size: 3rem;
+	margin: 3%;
+}
+.buttons {
+	text-align: center;
+}
+
+.return-to-main {
+	width: 10%;
+	font-size: 0.8rem;
+	margin: 2% 1% 1% 0;
+	transition-duration: 0.3s;
+	border: 1px solid #100f0f;
+	padding: 0.5% 1%;
+	transition-duration: 0.3s;
+}
+.return-to-main:hover {
+	border: none;
+	background: #ea5455;
+	color: #fff;
+	border: 1px solid #b31312;
+	transform: scale(1.2);
 }
 .restart-btn {
 	width: 10%;
-	margin: 3% auto 1%;
+	font-size: 0.8rem;
+	margin: 2% 0 1% 1%;
 	transition-duration: 0.3s;
 	border: 1px solid #100f0f;
-	padding: 1% 2%;
+	padding: 0.5% 1%;
 	transition-duration: 0.3s;
 }
 .restart-btn:hover {
 	border: none;
-	background: #b31312;
+	background: #ea5455;
 	color: #fff;
 	border: 1px solid #b31312;
 	transform: scale(1.2);
 }
 .cell {
-	margin: 5px;
-	border-radius: 2%;
+	padding: 5px;
+	border-radius: 3%;
 }
 .cell:hover {
-	background: #f6ffde;
-	margin: 5px;
+	background: #fff;
 }
 .cell1 {
 	border-right: 3px #100f0f solid;
@@ -155,10 +175,10 @@ img {
 	gap: 5%;
 	margin: auto;
 	text-align: center;
-	margin-top: 5%;
+	margin-top: 9%;
 }
 .display-result p {
-	font-size: 2rem;
+	font-size: 1.2rem;
 }
 .player-x {
 	background: #bce29e;
@@ -194,7 +214,7 @@ img {
 	transition-duration: 0.3s;
 }
 .s-input:hover {
-	background: #f8c4b4;
+	background: #f2be22;
 	border: 1px solid #f1f1f1;
 }
 .start-btn {
@@ -206,6 +226,14 @@ img {
 	background: #bce29e;
 	border: 1px solid #f1f1f1;
 	transform: scale(1.3);
+}
+footer {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-weight: 200;
+	margin: auto;
+	bottom: 0;
 }
 .hide {
 	display: none;

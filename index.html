@@ -13,9 +13,12 @@
 <body>
    <section class="main">
     <div class="game">
+         <div class="buttons">
+            <button class="return-to-main">Main page</button>
          <button class="restart-btn">Restart</button>
+         </div>
         <div class="game-board">
-            <div class="cell cell1" type="button"><img src="images/o.png" alt=""></div>
+            <div class="cell cell1" type="button"></div>
             <div class="cell cell2" type="button"></div>
             <div class="cell cell3" type="button"></div>
             <div class="cell cell4" type="button"></div>
@@ -23,21 +26,21 @@
             <div class="cell cell6" type="button"></div>
             <div class="cell cell7" type="button"></div>
             <div class="cell cell8" type="button"></div>
-            <div class="cell cell9" type="button"><img src="images/x.png" alt=""></div>
+            <div class="cell cell9" type="button"></div>
         </div>
     </div>
     <div class="display-result">
         <div class="player-x">
-            <h3>Player X</h3>
-            <p>0</p>
+            <h3>Player - X</h3>
+            <p class="player-score">0</p>
         </div>
        <div class="ties">
         <h3>Ties</h3>
-        <p>0</p>
+        <p class="ties-score">0</p>
        </div>
         <div class="player-o">
-            <h3>Player</h3>
-            <p>0</p>
+            <h3>Player - 0</h3>
+            <p class="computer-score">0</p>
         </div>
     </div>
    </section>
@@ -46,14 +49,14 @@
     <h1>Unleash your tactical prowess as you vie for victory in this classic game of wit and skill. <br>
         Get ready to make your mark, claim your territory, and outsmart your opponent. <br> Let the battle for tic-tac-toe supremacy begin!</h1>
     <div class="choice">
-        <input type="radio" id="vsPlayer" class="ui-checkbox" name="choice" checked/>
-        <label for="vsPlayer" class="s-input">Player VS Computer</label>
-        <input type="radio" id="vsCompute" class="ui-checkbox" name="choice"/>
-        <label for="vsCompute" class="s-input">Player VS Player</label>
+        <input type="radio" id="vsPlayer" class="ui-checkbox" name="choice"/>
+        <label for="vsPlayer" class="s-input">Player VS Player</label>
+        <input type="radio" id="vsComputer" class="ui-checkbox" name="choice"/>
+        <label for="vsComputer" class="s-input">Player VS Computer</label>
     </div>
     <button class="start-btn">Start game</button>
    </section>
-
+   <footer>BM 2023  </footer>
     <script src="script.js" defer></script>
 </body>
 </html>
