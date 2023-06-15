@@ -241,3 +241,42 @@ footer {
 .show {
 	display: block;
 }
+
+@media screen and (max-width: 600px) {
+	.logo {
+		width: 30%;
+		margin-top: 15%;
+	}
+	.game-intro h1 {
+		font-size: 1.3rem;
+		margin: 0 4% 25% 4%;
+	}
+	.return-to-main {
+		width: 30%;
+		margin: 20% 1% 1% 0;
+	}
+	.restart-btn {
+		width: 30%;
+	}
+	.game-board {
+		margin: 15% auto 0;
+		width: 70%;
+	}
+	.start-btn {
+		margin-top: 10%;
+	}
+	.player-x {
+		grid-column: 1/4;
+		grid-row: 1/2;
+		margin-top: 40%;
+	}
+	.ties {
+		grid-column: 1/4;
+		grid-row: 2/3;
+	}
+	.player-o {
+		grid-column: 1/4;
+		grid-row: 3/4;
+		width: 100%;
+	}
+}
