@@ -8,14 +8,18 @@ const vsPlayerRadio = document.getElementById("vsPlayer");
 const vsComputerRadio = document.getElementById("vsComputer");
 const vsPlayerLabel = document.querySelector('label[for="vsPlayer"]');
 const vsComputerLabel = document.querySelector('label[for="vsComputer"]');
+let gameOver = false;
 
 startBtn.addEventListener("click", () => {
+    const gameStartAudio = new Audio("audio/game-start.mp3");
+
     if (vsPlayerRadio.checked == true) {
         setTimeout(() => {
             intro.style.display = "none";
             main.style.display = "block";
-        }, 300);
+        }, 3000);
     }
+    gameStartAudio.play();
 });
 
 vsPlayerRadio.addEventListener("click", () => {
@@ -58,7 +62,10 @@ const Game = (() => {
             });
         });
         const restartBtn = document.querySelector(".restart-btn")
-        restartBtn.addEventListener('click', resetGame);
+        restartBtn.addEventListener('click', () => {
+            resetGame();
+            gameOver = false;
+        });
 
         const returnToMain = document.querySelector(".return-to-main");
         returnToMain.addEventListener("click", () => {
@@ -74,13 +81,19 @@ const Game = (() => {
     const handleCellClick = (index) => {
         const board = Gameboard.getBoard();
 
-        if (board[index] !== '') {
+        if (gameOver || board[index] !== '') {
+            let invalidSelectionAudio = new Audio("audio/invalid-selection.mp3");
+            invalidSelectionAudio.play();
             console.log('Cell occupied! Choose another one.');
             return;
         }
 
         board[index] = currentPlayer.mark;
         cells[index].textContent = currentPlayer.mark;
+
+        const audioChoice = new Audio("audio/choice-sound.mp3");
+        audioChoice.play();
+        const gameDone = new Audio("audio/game-over.mp3");
 
         const playerScore = document.querySelector(".player-score");
         const ties = document.querySelector(".ties-score");
@@ -98,7 +111,8 @@ const Game = (() => {
                 setTimeout(() => {
                     gameBoardElement.style.backgroundColor = originalBackgroundColor;
                 }, 1000);
-
+                gameOver = true;
+                gameDone.play();
             }
             else if (currentPlayer.mark == "O") {
                 let computer = parseInt(computerScore.textContent) || 0;
@@ -111,6 +125,8 @@ const Game = (() => {
                 setTimeout(() => {
                     gameBoardElement.style.backgroundColor = originalBackgroundColor;
                 }, 1000);
+                gameOver = true;
+                gameDone.play();
             }
 
 
@@ -125,6 +141,8 @@ const Game = (() => {
             setTimeout(() => {
                 gameBoardElement.style.backgroundColor = originalBackgroundColor;
             }, 1000);
+            gameOver = true;
+            gameDone.play();
         } else {
             currentPlayer = currentPlayer === player1 ? player2 : player1;
         }
