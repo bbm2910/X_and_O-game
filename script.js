@@ -18,6 +18,7 @@ startBtn.addEventListener("click", () => {
             main.style.display = "block";
         }, 3000);
         gameStartAudio.play();
+
         GameVsComputer.start();
     }
     // if (vsPlayerRadio.checked) {
@@ -221,8 +222,6 @@ const GameVsComputer = (() => {
     let gameOver = false;
 
     const cells = document.querySelectorAll('.cell');
-    const restartBtn = document.querySelector(".restart-btn");
-    const returnToMain = document.querySelector(".return-to-main");
 
     const resetGameVsComputer = () => {
         resetGame();
@@ -234,7 +233,6 @@ const GameVsComputer = (() => {
     const returnToMainMenu = () => {
         main.style.display = "none";
         intro.style.display = "block";
-        resetGameVsComputer();
     };
 
     const start = () => {
@@ -255,8 +253,11 @@ const GameVsComputer = (() => {
 
     const handleCellClick = (index) => {
         const board = Gameboard.getBoard();
+        if (gameOver) {
+            return;
+        }
 
-        if (gameOver || board[index] !== '') {
+        if (board[index] !== '') {
             let invalidSelectionAudio = new Audio("audio/invalid-selection.mp3");
             invalidSelectionAudio.play();
             return;
@@ -300,8 +301,10 @@ const GameVsComputer = (() => {
                     gameBoardElement.style.backgroundColor = originalBackgroundColor;
                 }, 1000);
             }
-            gameOver = true;
             gameDone.play();
+            // setTimeout(() => {
+            //     resetGameVsComputer();
+            // }, 2000);
             return;
         }
 
