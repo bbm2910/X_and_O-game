@@ -7,55 +7,76 @@ const vsComputerRadio = document.getElementById("vsComputer");
 const vsPlayerLabel = document.querySelector('label[for="vsPlayer"]');
 const vsComputerLabel = document.querySelector('label[for="vsComputer"]');
 
+
+// Start the game - btn
 startBtn.addEventListener("click", () => {
     const gameStartAudio = new Audio("audio/game-start.mp3");
     if (vsComputerRadio.checked) {
+        intro.classList.add("animate");
+        // Set time-out so the games starts after the intro sound
         setTimeout(() => {
             intro.style.display = "none";
+            intro.classList.remove("animate");
             main.style.display = "block";
             playingAgainst.textContent = "Computer";
-        }, 1000);
+        }, 3000);
         gameStartAudio.play();
         Game.start(true);
     }
     if (vsPlayerRadio.checked) {
+        intro.classList.add("animate");
         setTimeout(() => {
             intro.style.display = "none";
+            intro.classList.remove("animate");
             main.style.display = "block";
             playingAgainst = "Player - 0";
-        }, 1000);
+        }, 3000);
         gameStartAudio.play();
         Game.start(false);
     }
+
+    // Score board at the start
     const playerScore = document.querySelector(".player-score");
     const ties = document.querySelector(".ties-score");
     const computerScore = document.querySelector(".computer-score");
     playerScore.textContent = "0";
     ties.textContent = "0";
     computerScore.textContent = "0";
-    console.log(Gameboard.getBoard());
+    // console.log(Gameboard.getBoard());
 });
 
 
+// Change background color of the input if it's checked
+vsPlayerRadio.addEventListener("click", () => {
+    vsPlayerLabel.style.backgroundColor = "#F29727";
+    vsComputerLabel.style.backgroundColor = "";
+});
 
+vsComputerRadio.addEventListener("click", () => {
+    vsComputerLabel.style.backgroundColor = "#F29727";
+    vsPlayerLabel.style.backgroundColor = "";
+});
+
+
+// Buttons inside the game to restart or go to the main menu
 const restartBtn = document.querySelector(".restart-btn");
 restartBtn.addEventListener('click', () => {
     Game.resetGame();
     gameOver = false;
 });
 
-
-
-
 const returnToMain = document.querySelector(".return-to-main");
 returnToMain.addEventListener("click", () => {
     setTimeout(() => {
         main.style.display = "none";
         intro.style.display = "block";
+        intro.classList.add("animate-big");
         Game.resetGame();
     }, 300);
 });
 
+
+// Game-board
 const Gameboard = (() => {
     let board = ['', '', '', '', '', '', '', '', ''];
 
@@ -63,6 +84,7 @@ const Gameboard = (() => {
         board[index] = mark;
     };
 
+    //Check winning combinations across the board
     const checkWin = (mark) => {
         const winConditions = [
             [0, 1, 2],
@@ -100,6 +122,8 @@ const Gameboard = (() => {
     return { updateBoard, checkWin, checkTie, getBoard, clearBoard };
 })();
 
+
+// Game logic
 const Game = (() => {
     let player1;
     let player2;
@@ -198,7 +222,6 @@ const Game = (() => {
     };
 
     const checkWin = () => {
-        console.log(Gameboard.checkWin(currentPlayer.mark));
         return Gameboard.checkWin(currentPlayer.mark);
     };
 
@@ -231,6 +254,7 @@ const Game = (() => {
         }, 1000);
     };
 
+    // Computer moves
     const makeComputerMove = () => {
         const emptyCells = Array.from(cells).filter(cell => cell.textContent === '');
         if (emptyCells.length === 0) return;
@@ -266,12 +290,12 @@ const Game = (() => {
         currentPlayer = player1;
         gameOver = false;
 
-        // Clear the cell contents on the UI
+        // Clear the cell contents
         cells.forEach(cell => {
             cell.textContent = '';
         });
 
-        // Reattach the event listeners
+        // REATTACH the event listeners
         cells.forEach(cell => {
             cell.addEventListener('click', handleCellClick);
         });
