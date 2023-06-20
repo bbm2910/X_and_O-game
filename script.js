@@ -61,9 +61,7 @@ vsComputerRadio.addEventListener("click", () => {
 // Buttons inside the game to restart or go to the main menu
 const restartBtn = document.querySelector(".restart-btn");
 restartBtn.addEventListener('click', () => {
-    const resetGame = new Audio("audio/reset-game.mp3")
     Game.resetGame();
-    resetGame.play();
     gameOver = false;
 });
 
