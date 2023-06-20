@@ -61,7 +61,9 @@ vsComputerRadio.addEventListener("click", () => {
 // Buttons inside the game to restart or go to the main menu
 const restartBtn = document.querySelector(".restart-btn");
 restartBtn.addEventListener('click', () => {
+    const resetGame = new Audio("audio/reset-game.mp3")
     Game.resetGame();
+    resetGame.play();
     gameOver = false;
 });
 
@@ -129,7 +131,7 @@ const Game = (() => {
     let player2;
     let currentPlayer;
     let vsComputer;
-    let gameOver;
+    let gameOver = false;
     const cells = document.querySelectorAll('.cell');
 
     const start = (vsComputerMode) => {
@@ -171,7 +173,6 @@ const Game = (() => {
                 let player = parseInt(playerScore.textContent) || 0;
                 player++;
                 playerScore.textContent = player;
-
                 gameBoardElement.style.backgroundColor = "#bce29e";
 
                 setTimeout(() => {
@@ -182,7 +183,6 @@ const Game = (() => {
                 let computer = parseInt(computerScore.textContent) || 0;
                 computer++;
                 computerScore.textContent = computer;
-
                 gameBoardElement.style.backgroundColor = "#f8c4b4";
 
                 setTimeout(() => {
@@ -193,8 +193,7 @@ const Game = (() => {
 
             setTimeout(() => {
                 gameBoardElement.style.backgroundColor = originalBackgroundColor;
-                resetGame();
-            }, 1000);
+            }, 2000);
 
             gameOver = true;
             gameDone.play();
@@ -237,7 +236,7 @@ const Game = (() => {
         gameDone.play();
         setTimeout(() => {
             gameBoardElement.style.backgroundColor = originalBackgroundColor;
-        }, 1000);
+        }, 4000);
     };
 
     const announceTie = () => {
@@ -251,7 +250,7 @@ const Game = (() => {
         gameDone.play();
         setTimeout(() => {
             gameBoardElement.style.backgroundColor = originalBackgroundColor;
-        }, 1000);
+        }, 4000);
     };
 
     // Computer moves
