@@ -241,6 +241,13 @@ footer {
 .show {
 	display: block;
 }
+.announceWinnerText {
+	text-align: center;
+	margin-top: 6%;
+}
+.clasa {
+	transform: scale(1.2);
+}
 
 @media screen and (max-width: 600px) {
 	.logo {
