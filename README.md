@@ -6,9 +6,7 @@ Tic-Tac-Toe is a classic paper-and-pencil game played on a grid of 3x3 squares. 
 Two players can participate in the game.
 The game board is displayed on a 3x3 grid.
 Players take turns marking X or O in empty squares.
-The game validates and prevents invalid moves.
-The game determines the winner or declares a draw.
-The game keeps track of each player's score.
+The game validates and prevents invalid moves, determines the winner or declares a draw and keeps track of each player's score.
 Players can choose to play again or reset the game.
 
 ## Getting Started
@@ -23,6 +21,4 @@ Player 1 starts the game by clicking on an empty square on the board. The square
 Player 2 takes their turn by clicking on another empty square. The square will be marked with an O.
 Players continue taking turns until one player wins or the game ends in a draw.
 The game automatically determines the winner and updates the scores accordingly.
-To play again, click the "Play Again" button.
-To reset the scores and start a new game, click the "Reset" button.
 Enjoy playing Tic-Tac-Toe!
