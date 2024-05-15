@@ -2,7 +2,7 @@
 ![My Image](Screenshot.png)
 Tic-Tac-Toe is a classic paper-and-pencil game played on a grid of 3x3 squares. This repository contains a web-based implementation of the Tic-Tac-Toe game using HTML, CSS, and JavaScript. Players take turns marking X or O in empty squares, and the objective is to have three of their marks in a horizontal, vertical, or diagonal row.
 
-## [Demo](https://bbm2910.github.io/Tic-Tac-Toe/)
+## [Demo](https://bbm2910.github.io/X_and_O-game/)
 
 ## Features
 Two players can participate in the game.
