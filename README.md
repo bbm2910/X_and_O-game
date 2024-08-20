@@ -4,6 +4,10 @@ Tic-Tac-Toe is a classic paper-and-pencil game played on a grid of 3x3 squares. 
 
 ## [Demo](https://bbm2910.github.io/X_and_O-game/)
 
+## Compatibility and Requirements
+1. Web - a modern web browser (e.g., Chrome, Firefox, Safari, Edge) with a desktop or laptop display.
+2. Mobile Devices 
+
 ## Features
 Two players can participate in the game.
 The game board is displayed on a 3x3 grid.
